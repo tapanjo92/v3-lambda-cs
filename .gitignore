@@ -1,6 +1,8 @@
 # Node dependencies
 infrastructure/node_modules
 infrastructure/dist
+lambdas/*/node_modules
+lambdas/*/dist
 
 # CDK context
 infrastructure/cdk.out
