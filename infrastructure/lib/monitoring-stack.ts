@@ -11,6 +11,7 @@ import * as cognito from 'aws-cdk-lib/aws-cognito';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import * as destinations from 'aws-cdk-lib/aws-logs-destinations';
 import * as ssm from 'aws-cdk-lib/aws-ssm';
+import * as path from 'path';
 
 export interface MonitoringStackProps extends StackProps {
   environmentName: string; // e.g. 'prod'
@@ -48,7 +49,10 @@ export class MonitoringStack extends Stack {
     const apiHandler = new lambda.Function(this, 'ApiHandler', {
       runtime: lambda.Runtime.NODEJS_18_X,
       handler: 'index.handler',
-      code: lambda.Code.fromInline('exports.handler = async ()=>{}')
+      code: lambda.Code.fromAsset(path.join(__dirname, '../../lambdas/api-handler/dist')),
+      environment: {
+        TABLE_NAME: table.tableName
+      }
     });
 
     table.grantReadWriteData(processingFn);
