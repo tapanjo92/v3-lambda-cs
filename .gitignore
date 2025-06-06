@@ -1,0 +1,9 @@
+# Node dependencies
+infrastructure/node_modules
+infrastructure/dist
+
+# CDK context
+infrastructure/cdk.out
+
+# Misc
+*.log
