@@ -174,6 +174,20 @@ As an NPM Package: This is the ideal developer experience. A user can simply npm
 
 As an AWS Lambda Layer: Create a Lambda Layer containing the logic. Customers can add this public layer to their functions without embedding the code directly.
 
+Example usage with the package:
+
+```ts
+import { withColdStartLog } from '@your-saas/coldstart-monitor';
+
+export const handler = withColdStartLog(async (event) => {
+  // your logic here
+}, { tenantId: 'YOUR_TENANT_ID' });
+```
+
+When publishing as a Lambda Layer, place the compiled module under
+`nodejs/node_modules/@your-saas/coldstart-monitor` in the layer zip and
+import it the same way as above.
+
 ## Frontend Quick Start
 The `frontend` directory contains a Next.js (App Router) application using TypeScript and TailwindCSS. It integrates Amazon Cognito for user authentication and fetches metrics from the API using SigV4 signing via AWS Amplify. After configuring `.env.local` with the outputs from the CDK stack, run:
 
