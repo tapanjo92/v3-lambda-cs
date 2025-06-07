@@ -173,3 +173,13 @@ While copy-pasting works, it's not a professional solution. To improve the custo
 As an NPM Package: This is the ideal developer experience. A user can simply npm install @your-saas/coldstart-monitor and import a wrapper function. This allows for easy versioning and updates.
 
 As an AWS Lambda Layer: Create a Lambda Layer containing the logic. Customers can add this public layer to their functions without embedding the code directly.
+
+## Frontend Quick Start
+The `frontend` directory contains a Next.js (App Router) application using TypeScript and TailwindCSS. It integrates Amazon Cognito for user authentication and fetches metrics from the API using SigV4 signing via AWS Amplify. After configuring `.env.local` with the outputs from the CDK stack, run:
+
+```bash
+npm install
+npm run dev
+```
+
+Navigate to `http://localhost:3000` to sign up or sign in and view cold start charts.
