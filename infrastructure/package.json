@@ -2,7 +2,6 @@
   "name": "infrastructure",
   "version": "1.0.0",
   "license": "MIT",
-  "type": "module",
   "scripts": {
     "build": "tsc",
     "cdk": "cdk",
