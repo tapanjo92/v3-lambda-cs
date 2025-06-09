@@ -114,6 +114,20 @@ For local development, you can use the CDK's output file to quickly configure th
 
 Deploy the Backend:
 
+First build the Lambda functions so the CDK stack can locate each function's `dist/` directory:
+
+```bash
+cd lambdas/api-handler
+npm install
+npm run build
+
+cd ../processing
+npm install
+npm run build
+```
+
+After the builds succeed, deploy the infrastructure:
+
 cd infrastructure
 npm install
 cdk bootstrap # First time only
