@@ -108,6 +108,13 @@ Authentication: Amazon Cognito (User Pools & Identity Pools), AWS IAM
 
 Resilience: Amazon SQS (for Dead-Letter Queue)
 
+## Prerequisites
+
+AWS CDK v2 requires a current Node.js runtime. Version 20.x is fully supported,
+and Node 18 continues to work until its end of life. Before running any `cdk`
+commands, switch to the appropriate version with `nvm` (or install it
+manually) so the CLI can run correctly.
+
 5. Deployment
 Local Development Quick Start
 For local development, you can use the CDK's output file to quickly configure the frontend.
